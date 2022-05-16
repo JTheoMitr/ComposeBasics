@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 
@@ -33,7 +34,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp() {
-    var shouldShowOnboard by remember { mutableStateOf(true) }
+    var shouldShowOnboard by rememberSaveable { mutableStateOf(true) }
 
     if (shouldShowOnboard) {
         OnboardingScreen(onContinueClicked = { shouldShowOnboard = false })
@@ -46,7 +47,7 @@ fun MyApp() {
 private fun Greetings(names: List<String> = List(1000) { "$it" }) {
     LazyColumn(modifier = Modifier.padding(vertical = 4.dp)) {
         items(items = names) { name ->
-            Greeting(name = name)
+            Greeting(name)
         }
     }
 }
