@@ -19,6 +19,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import com.example.composebasics.data.Person
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,11 +44,22 @@ fun MyApp() {
     }
 }
 
+//@Composable
+//private fun Greetings(names: List<String> = List(1000) { "$it" }) {
+//    LazyColumn(modifier = Modifier.padding(vertical = 4.dp)) {
+//        items(items = names) { name ->
+//            Greeting(name)
+//        }
+//    }
+//}
+
+val person1 = Person("Mike", 35)
+val people = arrayOf(Person("Mike", 35), Person("Jenna", 28), Person("Howard", 19))
 @Composable
-private fun Greetings(names: List<String> = List(1000) { "$it" }) {
+private fun Greetings(persons: Array<Person> = people) {
     LazyColumn(modifier = Modifier.padding(vertical = 4.dp)) {
-        items(items = names) { name ->
-            Greeting(name)
+        items(items = persons) { person ->
+            Greeting(person.name)
         }
     }
 }
