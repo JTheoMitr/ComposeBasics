@@ -116,11 +116,12 @@ private fun CardContent(name: String) {
 
     Row(
         modifier = Modifier
-            .padding(12.dp)
+            .padding(10.dp)
             .animateContentSize(
                 animationSpec = spring(
                     dampingRatio = Spring.DampingRatioMediumBouncy,
                     stiffness = Spring.StiffnessLow
+
                 )
             )
     ) {
@@ -132,7 +133,7 @@ private fun CardContent(name: String) {
             Text(text = "Hello, ")
             Text(
                 text = name,
-                style = MaterialTheme.typography.h4.copy(
+                style = MaterialTheme.typography.h3.copy(
                     fontWeight = FontWeight.ExtraBold
                 )
             )
